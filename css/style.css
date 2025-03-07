@@ -3,8 +3,23 @@
   flex-wrap: wrap-reverse;
 }
 #calculator-main-group button {
-  flex-basis: calc(100% / 3);
+  flex: 1 0 calc(100% / 3);
 }
 #calculator-main-group [data-digit="0"] {
-  flex-basis: calc(200% / 3);
+  flex: 1 0 calc(200% / 3);
+}
+
+#calculator {
+  display: flex;
+  flex-wrap: wrap;
+}
+#calculator-screen {
+  flex: 1 0 100%;
+}
+
+#calculator-left-top-group {
+  display: flex;
+}
+#calculator-left-top-group button {
+  flex: 1 0 calc(100% / 3);
 }

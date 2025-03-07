@@ -1,6 +1,6 @@
 const calculator = {
   initializeMainGroupItems() {
-    const mainGroup = document.querySelector("#calculator-main-group");
+    const mainGroup = document.querySelector("#calculator-left-main-group");
 
     for (let i = 0; i < 10; i++) {
       const digit = document.createElement("button");
