@@ -1,0 +1,10 @@
+#calculator-main-group {
+  display: flex;
+  flex-wrap: wrap-reverse;
+}
+#calculator-main-group button {
+  flex-basis: calc(100% / 3);
+}
+#calculator-main-group [data-digit="0"] {
+  flex-basis: calc(200% / 3);
+}
