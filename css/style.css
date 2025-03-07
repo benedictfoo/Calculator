@@ -1,15 +1,29 @@
+/* Default */
+* {
+  box-sizing: border-box;
+}
+/* body */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100svh;
+}
+
 /* Calculator */
 #calculator {
-  width: 90%;
-  max-width: 550px;
   display: flex;
   flex-wrap: wrap;
+  width: 90%;
+  max-width: 450px;
 }
 
 /* Calculator screen */
 
 #calculator-screen {
   flex: 1 0 100%;
+  height: 3rem;
+  background-color: aquamarine;
 }
 
 /* Calculator-left-group */
@@ -41,4 +55,8 @@
   display: flex;
   flex-direction: column;
   flex: 1 0 0;
+}
+
+#calculator button {
+  padding-block: 2rem;
 }
