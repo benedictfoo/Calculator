@@ -41,6 +41,9 @@ body {
 #calculator-left-group button {
   flex: 1 0 calc(100% / 3);
 }
+#calculator-left-group [data-button="0"] {
+  flex-basis: calc(200% / 3);
+}
 
 /* Calculator-side-group */
 #calculator-side-group {
