@@ -62,3 +62,20 @@ body {
 
   align-items: center;
 }
+
+/* colors */
+#calculator-left-group button {
+  background-color: aquamarine;
+}
+#calculator-left-group .calculator-digit[data-button],
+#calculator-left-group #calculator-decimal {
+  background-color: pink;
+}
+#calculator-side-group button {
+  background-color: orange;
+}
+
+/* calculator button font size */
+#calculator button {
+  font-size: 2rem;
+}
