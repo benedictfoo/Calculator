@@ -15,10 +15,12 @@ body {
 /* Calculator */
 #calculator {
   display: flex;
+  gap: 0.25rem;
   flex-wrap: wrap;
-  height: 70vh;
-  aspect-ratio: 1/1;
+  background-color: rgb(12, 12, 12);
   align-content: flex-start;
+  padding: 0.25rem;
+  width: 25rem;
   max-width: 90%;
 }
 
@@ -26,46 +28,37 @@ body {
 
 #calculator-screen {
   flex: 1 0 100%;
-  height: 3rem;
-  background-color: aquamarine;
+  height: 5rem;
+  background-color: rgb(170, 164, 164);
 }
 
 /* Calculator-left-group */
 #calculator-left-group {
   flex: 3 0 0;
+  gap: 0.25rem;
   display: flex;
   flex-wrap: wrap;
 }
 
 /* Left-group buttons */
 #calculator-left-group button {
-  flex: 1 0 calc(100% / 3);
+  flex: 1 0 calc(100% / 3 - 0.25rem);
 }
 #calculator-left-group [data-button="0"] {
-  flex-basis: calc(200% / 3);
+  flex-basis: calc(200% / 3 - 0.25rem);
 }
 
 /* Calculator-side-group */
 #calculator-side-group {
   display: flex;
   flex-direction: column;
+  gap: 0.25rem;
   flex: 1 0 0;
 }
 /* Calculator buttons */
 #calculator button {
   padding-inline: 0;
-  display: flex;
-  justify-content: center;
+  padding-block: 2rem;
+
   align-items: center;
-}
-/* Heights */
-#calculator-left-group,
-#calculator-side-group {
-  height: calc(500% / 6);
-}
-#calculator-screen {
-  height: calc(100% / 6);
-}
-#calculator button {
-  height: calc(100% / 5);
 }
