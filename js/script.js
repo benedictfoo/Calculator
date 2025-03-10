@@ -17,5 +17,17 @@ const calculator = {
       }
     });
   },
+  numbers: ["", ""],
+  operator: null,
+  addClearEvent() {
+    document
+      .querySelector("#calculator-clear")
+      .addEventListener("click", (e) => {
+        document.querySelector("#calculator-screen").dataset.screen = "0";
+        this.numbers = ["", ""];
+        this.operator = null;
+      });
+  },
 };
 calculator.initializeLeftGroupItems();
+calculator.addClearEvent();

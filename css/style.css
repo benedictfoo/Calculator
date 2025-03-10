@@ -17,10 +17,10 @@ body {
   display: flex;
   gap: 0.25rem;
   flex-wrap: wrap;
-  background-color: rgb(12, 12, 12);
+  background-color: hsl(0, 0%, 5%);
   align-content: flex-start;
   padding: 0.25rem;
-  width: 25rem;
+  width: 28rem;
   max-width: 90%;
 }
 
@@ -29,7 +29,16 @@ body {
 #calculator-screen {
   flex: 1 0 100%;
   height: 5rem;
-  background-color: rgb(170, 164, 164);
+  background-color: hsl(0, 3%, 65%);
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+#calculator-screen::after {
+  content: attr(data-screen);
+  font-size: 4rem;
+  padding-right: 0.5rem;
+  font-weight: bold;
 }
 
 /* Calculator-left-group */
@@ -65,16 +74,25 @@ body {
 
 /* colors */
 #calculator-left-group button {
-  background-color: aquamarine;
+  background-color: hsl(160, 100%, 65%);
 }
 #calculator-left-group .calculator-digit[data-button],
 #calculator-left-group #calculator-decimal {
-  background-color: pink;
+  background-color: hsl(350, 100%, 80%);
 }
 #calculator-side-group button {
-  background-color: orange;
+  background-color: hsl(39, 100%, 50%);
 }
-
+#calculator-left-group button:active {
+  background-color: hsl(160, 100%, 78%);
+}
+#calculator-side-group button:active {
+  background-color: hsl(39, 100%, 60%);
+}
+#calculator-left-group .calculator-digit[data-button]:active,
+#calculator-left-group #calculator-decimal:active {
+  background-color: hsl(350, 100%, 85%);
+}
 /* calculator button font size */
 #calculator button {
   font-size: 2rem;
