@@ -82,6 +82,8 @@ const calculator = {
       this.numbers[0] = firstNum * secondNum;
     } else if (this.operator === "/") {
       this.numbers[0] = firstNum / secondNum;
+    } else if (this.operator === "%") {
+      this.numbers[0] = firstNum % secondNum;
     }
     screen.dataset.screen = this.numbers[0];
     this.numbers[1] = "";
@@ -95,35 +97,34 @@ const calculator = {
     // if operator is not'=' store it as operator
   },
   addOperatorEvent() {
-    document
-      .querySelector("#calculator-side-group")
-      .addEventListener("click", (e) => {
-        const target = e.target;
+    document.querySelector("#calculator").addEventListener("click", (e) => {
+      const target = e.target;
 
-        if (this.operator === null) {
-          switch (target.dataset.operator) {
-            case "/":
-              this.operator = "/";
-              break;
-            case "*":
-              this.operator = "*";
-              break;
-            case "-":
-              this.operator = "-";
-              break;
-            case "+":
-              this.operator = "+";
-              break;
-            case "=":
-              this.operator = "=";
-              break;
-            default:
-              break;
-          }
-        } else {
-          this.getResult(target.dataset.operator);
+      if (this.operator === null) {
+        switch (target.dataset.operator) {
+          case "/":
+            this.operator = "/";
+            return;
+          case "*":
+            this.operator = "*";
+            return;
+          case "-":
+            this.operator = "-";
+            return;
+          case "+":
+            this.operator = "+";
+            return;
+          case "=":
+            this.operator = "=";
+            return;
+          case "%":
+            this.operator = "%";
+          default:
         }
-      });
+      } else if (target.dataset.operator) {
+        this.getResult(target.dataset.operator);
+      }
+    });
   },
 
   checkOperatorPressed() {
