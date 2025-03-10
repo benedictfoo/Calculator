@@ -25,10 +25,11 @@ const calculator = {
     document
       .querySelector("#calculator-clear")
       .addEventListener("click", (e) => {
-        document.querySelector("#calculator-screen").dataset.screen = "0";
+        const screen = document.querySelector("#calculator-screen");
         this.numbers = ["0", ""];
         this.operator = null;
         this.decimalAdded = false;
+        screen.dataset.screen = this.numbers[0];
       });
   },
   addDigitEvent() {
@@ -63,6 +64,21 @@ const calculator = {
         }
       });
   },
+  getResult(secondOperator) {
+    const screen = document.querySelector("#calculator-screen");
+    // store the result of first and second
+    //  if secondoperator = "="
+    if (secondOperator === "=") {
+      if (this.operator === "=") {
+        this.numbers[0] = this.numbers[1];
+        this.numbers[1] = "";
+        this.operator = null;
+        this.decimalAdded = false;
+      }
+    }
+    // clear the calc values and store result as first
+    // if operator is not'=' store it as operator
+  },
   addOperatorEvent() {
     document
       .querySelector("#calculator-side-group")
@@ -89,9 +105,12 @@ const calculator = {
             default:
               break;
           }
+        } else {
+          this.getResult(target.dataset.operator);
         }
       });
   },
+
   checkOperatorPressed() {
     return this.operator;
   },
