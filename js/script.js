@@ -24,13 +24,17 @@ const calculator = {
   addClearEvent() {
     document
       .querySelector("#calculator-clear")
-      .addEventListener("click", (e) => {
-        const screen = document.querySelector("#calculator-screen");
-        this.numbers = ["0", ""];
-        this.operator = null;
-        this.decimalAdded = false;
-        screen.dataset.screen = this.numbers[0];
-      });
+      .addEventListener("click", () => this.clear());
+  },
+  clear() {
+    const screen = document.querySelector("#calculator-screen");
+    this.numbers = ["0", ""];
+    this.operator = null;
+    this.decimalAdded = false;
+    screen.dataset.screen = this.numbers[0];
+    document
+      .querySelectorAll("#calculator-side-group button")
+      .forEach((button) => button.classList.remove("active"));
   },
   addDigitEvent() {
     document
@@ -93,6 +97,9 @@ const calculator = {
     } else if (secondOperator !== "=") {
       this.operator = secondOperator;
     }
+    document
+      .querySelectorAll("#calculator-side-group button")
+      .forEach((button) => button.classList.remove("active"));
     // clear the calc values and store result as first
     // if operator is not'=' store it as operator
   },
@@ -120,22 +127,25 @@ const calculator = {
         switch (target.dataset.operator) {
           case "/":
             this.operator = "/";
-            return;
+            break;
           case "*":
             this.operator = "*";
-            return;
+            break;
           case "-":
             this.operator = "-";
-            return;
+            break;
           case "+":
             this.operator = "+";
-            return;
+            break;
           case "=":
             this.operator = "=";
-            return;
+            break;
           case "%":
             this.operator = "%";
           default:
+        }
+        if (target.dataset.operator) {
+          target.classList.add("active");
         }
       } else if (target.dataset.operator) {
         this.getResult(target.dataset.operator);

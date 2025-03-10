@@ -88,11 +88,11 @@ body {
 }
 #calculator-side-group button:active,
 #calculator-side-group button.active {
-  background-color: hsl(39, 100%, 60%);
+  background-color: hsl(39, 100%, 70%);
 }
-#calculator-left-group .calculator-digit[data-button]:active,
+#calculator-left-group .calculator-digit[data-digit]:active,
 #calculator-left-group #calculator-decimal:active {
-  background-color: hsl(350, 100%, 85%);
+  background-color: hsl(350, 100%, 88%);
 }
 /* calculator button font size */
 #calculator button {
