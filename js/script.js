@@ -41,6 +41,12 @@ const calculator = {
         }
       });
   },
+  checkOperatorPressed() {
+    return this.operator;
+  },
+  checkFirstNumberStored() {
+    return this.numbers[0];
+  },
 };
 calculator.initializeLeftGroupItems();
 calculator.addClearEvent();
