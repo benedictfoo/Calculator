@@ -86,7 +86,8 @@ body {
 #calculator-left-group button:active {
   background-color: hsl(160, 100%, 78%);
 }
-#calculator-side-group button:active {
+#calculator-side-group button:active,
+#calculator-side-group button.active {
   background-color: hsl(39, 100%, 60%);
 }
 #calculator-left-group .calculator-digit[data-button]:active,

@@ -68,7 +68,7 @@ const calculator = {
     const screen = document.querySelector("#calculator-screen");
     // store the result of first and second
     //  if secondoperator = "="
-    console.log(secondOperator, this.operator);
+
     const firstNum = +this.numbers[0];
     const secondNum = +this.numbers[1];
 
@@ -99,8 +99,24 @@ const calculator = {
   addOperatorEvent() {
     document.querySelector("#calculator").addEventListener("click", (e) => {
       const target = e.target;
-
-      if (this.operator === null) {
+      if (target.dataset.operator === "change-sign") {
+        const changeSign = (index) => {
+          const screen = document.querySelector("#calculator-screen");
+          if (this.operator !== null) {
+            return;
+          } else if (this.numbers[index] && this.numbers[index][0] === "-") {
+            this.numbers[index] = this.numbers[index].slice(1);
+          } else if (this.numbers[index]) {
+            this.numbers[index] = `-${this.numbers[index]}`;
+          }
+          screen.dataset.screen = this.numbers[index];
+        };
+        if (this.numbers[1]) {
+          changeSign(1);
+        } else if (this.numbers[0]) {
+          changeSign(0);
+        }
+      } else if (this.operator === null) {
         switch (target.dataset.operator) {
           case "/":
             this.operator = "/";
