@@ -41,6 +41,37 @@ const calculator = {
         }
       });
   },
+  addOperatorEvent() {
+    document
+      .querySelector("#calculator-side-group")
+      .addEventListener("click", (e) => {
+        const target = e.target;
+        console.log(this.operator);
+
+        if (this.operator === null) {
+          switch (target.dataset.operator) {
+            case "/":
+              this.operator = "/";
+              break;
+            case "*":
+              this.operator = "*";
+              break;
+            case "-":
+              this.operator = "-";
+              break;
+            case "+":
+              this.operator = "+";
+              break;
+            case "=":
+              this.operator = "=";
+              break;
+            default:
+              break;
+          }
+        }
+        console.log(this.operator);
+      });
+  },
   checkOperatorPressed() {
     return this.operator;
   },
@@ -51,3 +82,4 @@ const calculator = {
 calculator.initializeLeftGroupItems();
 calculator.addClearEvent();
 calculator.addDigitEvent();
+calculator.addOperatorEvent();
