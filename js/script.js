@@ -20,6 +20,7 @@ const calculator = {
   },
   numbers: ["0", ""],
   operator: null,
+  decimalAdded: false,
   addClearEvent() {
     document
       .querySelector("#calculator-clear")
@@ -33,11 +34,31 @@ const calculator = {
     document
       .querySelector("#calculator-left-group")
       .addEventListener("click", (e) => {
+        const screen = document.querySelector("#calculator-screen");
         const target = e.target;
-        if (target.classList.contains("calculator-digit")) {
-          console.log(target.dataset.digit);
-        } else if (target.id === "calculator-decimal") {
-          console.log(target.dataset.decimal);
+        const addToArray = (index) => {
+          if (target.classList.contains("calculator-digit")) {
+            if (this.numbers[index] === "0") {
+              this.numbers[index] = "";
+            } else {
+            }
+            this.numbers[index] += target.dataset.digit;
+          } else if (target.id === "calculator-decimal") {
+            if (!this.decimalAdded) {
+              this.decimalAdded = true;
+              this.numbers[index] += ".";
+            }
+          }
+          screen.dataset.screen = this.numbers[index];
+        };
+        // If no operator add to first
+        if (this.operator === null) {
+          addToArray(0);
+        }
+
+        // Else add to second
+        else {
+          addToArray(1);
         }
       });
   },
@@ -46,7 +67,6 @@ const calculator = {
       .querySelector("#calculator-side-group")
       .addEventListener("click", (e) => {
         const target = e.target;
-        console.log(this.operator);
 
         if (this.operator === null) {
           switch (target.dataset.operator) {
@@ -69,7 +89,6 @@ const calculator = {
               break;
           }
         }
-        console.log(this.operator);
       });
   },
   checkOperatorPressed() {
