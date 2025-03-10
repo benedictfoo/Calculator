@@ -6,13 +6,14 @@ const calculator = {
       if (digit === ".") {
         const decimal = document.createElement("button");
         decimal.textContent = ".";
+        decimal.dataset.decimal = ".";
         decimal.setAttribute("id", "calculator-decimal");
         leftGroup.appendChild(decimal);
       } else {
         const button = document.createElement("button");
         button.setAttribute("class", "calculator-digit");
         button.textContent = digit;
-        button.dataset.button = digit;
+        button.dataset.digit = digit;
         leftGroup.appendChild(button);
       }
     });
@@ -28,6 +29,19 @@ const calculator = {
         this.operator = null;
       });
   },
+  addDigitEvent() {
+    document
+      .querySelector("#calculator-left-group")
+      .addEventListener("click", (e) => {
+        const target = e.target;
+        if (target.classList.contains("calculator-digit")) {
+          console.log(target.dataset.digit);
+        } else if (target.id === "calculator-decimal") {
+          console.log(target.dataset.decimal);
+        }
+      });
+  },
 };
 calculator.initializeLeftGroupItems();
 calculator.addClearEvent();
+calculator.addDigitEvent();
