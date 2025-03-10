@@ -18,7 +18,7 @@ const calculator = {
       }
     });
   },
-  numbers: ["", ""],
+  numbers: ["0", ""],
   operator: null,
   addClearEvent() {
     document
