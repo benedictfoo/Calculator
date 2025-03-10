@@ -26,8 +26,9 @@ const calculator = {
       .querySelector("#calculator-clear")
       .addEventListener("click", (e) => {
         document.querySelector("#calculator-screen").dataset.screen = "0";
-        this.numbers = ["", ""];
+        this.numbers = ["0", ""];
         this.operator = null;
+        this.decimalAdded = false;
       });
   },
   addDigitEvent() {
