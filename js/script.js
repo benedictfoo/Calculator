@@ -68,13 +68,28 @@ const calculator = {
     const screen = document.querySelector("#calculator-screen");
     // store the result of first and second
     //  if secondoperator = "="
+    console.log(secondOperator, this.operator);
+    const firstNum = +this.numbers[0];
+    const secondNum = +this.numbers[1];
+
+    if (this.operator === "=") {
+      this.numbers[0] = this.numbers[1];
+    } else if (this.operator === "+") {
+      this.numbers[0] = firstNum + secondNum;
+    } else if (this.operator === "-") {
+      this.numbers[0] = firstNum - secondNum;
+    } else if (this.operator === "*") {
+      this.numbers[0] = firstNum * secondNum;
+    } else if (this.operator === "/") {
+      this.numbers[0] = firstNum / secondNum;
+    }
+    screen.dataset.screen = this.numbers[0];
+    this.numbers[1] = "";
+    this.decimalAdded = false;
     if (secondOperator === "=") {
-      if (this.operator === "=") {
-        this.numbers[0] = this.numbers[1];
-        this.numbers[1] = "";
-        this.operator = null;
-        this.decimalAdded = false;
-      }
+      this.operator = null;
+    } else if (secondOperator !== "=") {
+      this.operator = secondOperator;
     }
     // clear the calc values and store result as first
     // if operator is not'=' store it as operator
